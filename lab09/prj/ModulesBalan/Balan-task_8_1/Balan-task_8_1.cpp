@@ -46,3 +46,24 @@ void calculateAverageTemperatureForTest(const double tempsC[], int size, double&
     avgC = sumC / size;
     avgF = 32 + 9.0 / 5.0 * avgC;
 }
+int analyzeBits(int N) {
+    // Перевірка на допустимий діапазон
+    if (N < 0 || N > 17948360) {
+        cout << "Помилка: число поза допустимим діапазоном (0 ≤ N ≤ 17948360).\n";
+        return -1; // Повертаємо -1 як індикатор помилки
+    }
+
+    // Отримуємо значення біта D_9 (9-й біт, індекс 8)
+    bool D9 = (N >> 8) & 1;
+
+    int count = 0;
+    int temp = N;
+
+    // Підрахунок відповідних бітів
+    while (temp > 0) {
+        count += ((temp & 1) == (D9 ? 0 : 1)) ? 1 : 0;
+        temp >>= 1;
+    }
+
+    return count;
+}
