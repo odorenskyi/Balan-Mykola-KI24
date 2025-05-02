@@ -1,0 +1,3 @@
+﻿  BalanTask_9.cpp
+C:\Users\Boonapart\source\repos\BalanTask_9\BalanTask_9\BalanTask_9.cpp(78,12): warning C4566: символ, представленный универсальным именем символа "\u2264", невозможно представить в текущей кодовой странице (1251)
+  BalanTask_9.vcxproj -> C:\Users\Boonapart\source\repos\BalanTask_9\x64\Debug\BalanTask_9.exe
