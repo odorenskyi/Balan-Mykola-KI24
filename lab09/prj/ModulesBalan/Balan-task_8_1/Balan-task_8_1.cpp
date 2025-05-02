@@ -38,3 +38,11 @@ void calculateDeposit(double amount, int months, double& dailyInterest, double& 
     totalInterest = amount * (annualRate / 100.0) * (depositDays / (double)daysInYear);
     dailyInterest = totalInterest / depositDays;
 }
+void calculateAverageTemperatureForTest(const double tempsC[], int size, double& avgC, double& avgF) {
+    double sumC = 0;
+    for (int i = 0; i < size; ++i) {
+        sumC += tempsC[i];
+    }
+    avgC = sumC / size;
+    avgF = 32 + 9.0 / 5.0 * avgC;
+}
