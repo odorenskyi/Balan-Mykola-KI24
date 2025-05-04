@@ -1,10 +1,13 @@
 ﻿#include <cmath>
 #include <iostream>
-#include <iomanip> 
-#include <fstream>
 #include <string>
 #include <sstream>
+#include <fstream>
+#include <vector>
+#include <algorithm>
 #include <ctime>
+#include <cctype>
+#include <iomanip>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -97,4 +100,32 @@ void analyzeWord(std::ifstream& inFile, std::ofstream& outFile) {
     outFile << "Рік розробки: 2025\n\n";
     outFile << "Кількість приголосних літер у слові \"" << word << "\": " << consonantCount << "\n";
     outFile << "Слово \"" << word << "\" " << (found ? "присутнє" : "відсутнє") << " у вірші Віталія Іващенка.\n";
+}
+
+void appendWordInfo(std::ifstream& inFile, std::ofstream& outFile, const std::string& inputFileName) {
+    std::string text;
+    std::getline(inFile, text);
+
+    std::stringstream ss(text);
+    std::string word;
+    ss >> word;
+
+    if (word.empty()) {
+        outFile << "Помилка: вхідний текст порожній.\n";
+        return;
+    }
+
+    char firstLetter = word.front();
+    char lastLetter = word.back();
+
+    time_t now = time(nullptr);
+    char dt[100];
+    tm timeInfo;
+    localtime_s(&timeInfo, &now);
+    std::strftime(dt, sizeof(dt), "%Y-%m-%d %H:%M:%S", &timeInfo);
+
+    outFile << word << "\n";
+    outFile << "Перша літера слова: " << firstLetter << "\n";
+    outFile << "Остання літера слова: " << lastLetter << "\n";
+    outFile << "Дата і час допису: " << dt << "\n";
 }
