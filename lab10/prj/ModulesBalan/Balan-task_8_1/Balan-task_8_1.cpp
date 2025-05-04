@@ -129,3 +129,26 @@ void appendWordInfo(std::ifstream& inFile, std::ofstream& outFile, const std::st
     outFile << "Остання літера слова: " << lastLetter << "\n";
     outFile << "Дата і час допису: " << dt << "\n";
 }
+void computeAndConvert(std::ifstream& inFile, std::ofstream& outFile) {
+    double x, y, z;
+    int n;
+    inFile >> x >> y >> z >> n;
+
+    double s = calculateS(x, y, z);
+
+    std::string binary = "";
+    int temp = n;
+    if (temp == 0) {
+        binary = "0";
+    }
+    else {
+        while (temp > 0) {
+            binary = (temp % 2 == 0 ? "0" : "1") + binary;
+            temp /= 2;
+        }
+    }
+
+    outFile << "Результат s_calculation(" << x << ", " << y << ", " << z << "): "
+        << std::fixed << std::setprecision(6) << s << "\n";
+    outFile << "Число " << n << " у двійковому коді: " << binary << "\n";
+}

@@ -7,3 +7,4 @@ void calculateAverageTemperatureForTest(const double tempsC[], int size, double&
 int analyzeBits(int N);
 void analyzeWord(std::ifstream& inFile, std::ofstream& outFile);
 void appendWordInfo(std::ifstream& inFile, std::ofstream& outFile, const std::string& inputFileName);
+void computeAndConvert(std::ifstream& inFile, std::ofstream& outFile);
