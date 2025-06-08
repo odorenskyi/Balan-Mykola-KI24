@@ -1,0 +1,5 @@
+﻿  Teacher.cpp
+C:\Users\andre\Desktop\BalanMikola\prj\Teacher\ModulesBalan.h(13,18): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "Teacher.cpp")
+  
+  Teacher.vcxproj -> C:\Users\andre\Desktop\BalanMikola\prj\Teacher\x64\Debug\Teacher.exe
